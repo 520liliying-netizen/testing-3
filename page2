@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <title>หน้าจองคิว</title>
+  <style>
+    body {
+      font-family: 'IBM Plex Sans Thai', sans-serif;
+      background-color: #fff8e1;
+      margin: 0;
+      padding: 40px;
+      text-align: center;
+    }
+    h1 {
+      color: #ff6f00;
+      font-family: 'IBM Plex Sans Thai', sans-serif;
+    }
+    .back-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+    .back-btn:hover {
+      background-color: #388E3C;
+    }
+    .booking-title {
+      font-family: 'Montserrat', fallback-font;
+      color: #004a99;
+      font-weight: 700;
+    }
+    :root {
+      --main-blue: #a8d0ff;
+      --light-blue: #e6f0ff;
+      --line-color: #c3d7ff;
+      --text-color: #1a3c72;
+      --accent-blue: #3a6ed8;
+      --font-family: 'Kanit', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-image: url('background.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
+      font-family: 'IBM Plex Sans Thai', sans-serif;
+    }
+    .pattern {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        repeating-linear-gradient(
+          45deg,
+          var(--line-color),
+          var(--line-color) 1px,
+          transparent 1px,
+          transparent 20px
+        ),
+        repeating-linear-gradient(
+          -45deg,
+          var(--line-color),
+          var(--line-color) 1px,
+          transparent 1px,
+          transparent 20px
+        );
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h1.container-title {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #444;
+      text-align: left;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      background-color: #fff;
+      font-family: 'IBM Plex Sans Thai', sans-serif;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+      font-family: 'IBM Plex Sans Thai', sans-serif;
+    }
+    button:hover {
+      background: #218838;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <h1 class="booking-title">BOOKING</h1>
+  <p>ท่านสามารถใส่ฟอร์มหรือข้อมูลการจองได้ที่นี่</p>
+
+  <div class="container">
+    <h1 class="container-title">รายละเอียดข้อมูล</h1>
+    <form id="bookingForm">
+      <label for="fullname">ชื่อ-นามสกุล</label>
+      <input type="text" id="fullname" name="fullname" placeholder="กรอกชื่อ-นามสกุล" required />
+
+      <label for="phone">เบอร์โทร</label>
+      <input type="tel" id="phone" name="phone" placeholder="กรอกเบอร์โทร" pattern="[0-9]{9,10}" required />
+
+      <label for="booking_time">เวลาที่ท่านต้องการเข้ารับบริการ</label>
+      <input type="time" id="booking_time" name="booking_time" required />
+
+      <label for="booking_date">วันที่ท่านต้องการเข้ารับบริการ</label>
+      <input type="date" id="booking_date" name="booking_date" required />
+
+      <label for="program">โปรแกรมที่สนใจ / ข้อความเพิ่มเติม</label>
+      <textarea id="program" name="program" rows="4" placeholder="กรอกโปรแกรมที่สนใจ หรือข้อมูลเพิ่มเติม" required></textarea>
+
+      <button type="submit">ส่งข้อมูล</button>
+    </form>
+  </div>
+
+  <a href="mywedtesting.html" class="back-btn">⬅ กลับหน้าหลัก</a>
+
+<script>
+const scriptURL = 'https://script.google.com/macros/s/AKfycbysTp2UgZoos9lIPav0-nFRURMWQKCmXpmbwLble5KQbE_NV1eKW2lPEHS2aPqKlOAIOw/exec';
+const form = document.getElementById('bookingForm');
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+    .then(res => res.json())
+    .then(res => {
+      if (res.result === 'success') {
+        alert('ส่งข้อมูลสำเร็จ');
+        form.reset();
+      } else {
+        alert('เกิดข้อผิดพลาด');
+      }
+    })
+    .catch(err => alert('Error: ' + err.message));
+});
+</script>
+
+</body>
+</html>
