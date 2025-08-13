@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CEF Wellness - Women Health Clinic</title> 
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pVY9YfJf8RUGLFZpL2DRzJ6R+d8nBSLLVQoWfyYlw3DTh7QEs6sErOJmxxn3St+Az/VYdGASL6B9V+q56rQvYg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <style>
+    .logo {
+      max-width: 200px;
+      height: auto;
+    }
+
+    .top-bar {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: #003366;
+      color: white;
+      display: flex;
+      gap: 40px;
+      padding: 15px 60px;
+      font-size: 16px;
+      font-family: 'Kanit', 'IBM Plex Sans Thai', sans-serif;
+      user-select: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+      align-items: center;
+      border-radius: 20px;
+      min-width: 550px;
+    }
+
+    .top-bar a {
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+
+    .top-bar a:hover {
+      color: #d1d9ff;
+    }
+
+    .top-bar a i {
+      font-size: 18px;
+    }
+
+    /* กล่องภาษา */
+    .language-select {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .language-select .lang-main {
+      color: white;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: default; /* ไม่ใช่ลิงก์คลิกได้ */
+    }
+
+    .language-select .lang-main i {
+      font-size: 18px;
+    }
+
+    /* ธงเล็กหลังคำว่า ภาษา (ฝังเป็น base64) */
+    .lang-main-flag {
+      width: 24px;
+      height: auto;
+      border-radius: 3px;
+      margin-left: 6px;
+      user-select: none;
+    }
+
+    .language-select .lang-flag a {
+      display: inline-block;
+    }
+
+    .language-select .lang-flag img {
+      width: 20px;
+      height: 14px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .language-select .lang-flag img:hover {
+      transform: scale(1.2);
+    }
+
+    body {
+      padding-top: 90px;
+      font-family: 'Kanit', 'IBM Plex Sans Thai', sans-serif;
+      margin: 0;
+    }
+  </style>
+
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="top-bar">
+    <a href="#clinic-info"><i class="fa-solid fa-hospital"></i>ข้อมูลคลินิก</a>
+    <a href="#contact-staff"><i class="fa-solid fa-phone"></i>ติดต่อเจ้าหน้าที่</a>
+ <a href="service page.html"><i class="fa-solid fa-calendar-check"></i>บริการ</a>
+
+    <div class="language-select" style="position: relative; display: inline-block; margin-left: 20px;">
+      <div class="lang-main" style="cursor: pointer; color: white; display: flex; align-items: center; gap: 6px; font-weight: 600;">
+        <i class="fa-solid fa-language"></i> ภาษา <i class="fa-solid fa-caret-down"></i>
+      </div>
+      <div class="lang-dropdown" style="
+        display: none; 
+        position: absolute; 
+        background-color: white; 
+        min-width: 110px; 
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.2); 
+        z-index: 1001;
+        border-radius: 6px;
+        margin-top: 8px;
+        right: 0;
+      ">
+        <a href="?lang=th" style="color: black; padding: 10px 14px; text-decoration: none; display: block;">ภาษาไทย</a>
+        <a href="?lang=en" style="color: black; padding: 10px 14px; text-decoration: none; display: block;">English</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const langMain = document.querySelector('.lang-main');
+    const dropdown = document.querySelector('.lang-dropdown');
+
+    langMain.addEventListener('click', () => {
+      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // ปิด dropdown ถ้าคลิกข้างนอก
+    window.addEventListener('click', function(e) {
+      if (!langMain.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+
+  <img src="Beige Classy Floral Alphabet Wedding Invitation Instagram Post.png" alt="โลโก้ CEF Wellness" class="logo" />
+
+  <style>
+
+    :root {
+      --main-blue: #a8d0ff;
+      --light-blue: #e6f0ff;
+      --line-color: #c3d7ff;
+      --text-color: #1a3c72;
+      --accent-blue: #3a6ed8;
+      --font-family: 'Kanit', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-image: url('background.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+.pattern {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      var(--line-color),
+      var(--line-color) 1px,
+      transparent 1px,
+      transparent 20px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      var(--line-color),
+      var(--line-color) 1px,
+      transparent 1px,
+      transparent 20px
+    );
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: -1;
+}
+
+    header {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header img.logo {
+      width: 150px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 8rem; /* ตัวใหญ่ขึ้น */
+      font-weight: 700;
+      color: #00285a;
+      letter-spacing: 3px;
+      font-family: 'Montserrat', fallback-font;
+    }
+
+    header p.subtitle {
+      margin-top: 0;
+      font-size: 3.5rem;
+      font-weight: 600;
+      color: #004a99;
+      font-family: 'Montserrat', fallback-font;
+    }
+
+    main {
+      flex-grow: 1;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px 40px;
+      background-color: #ffffffdd;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    section {
+      padding: 30px 20px;
+    }
+
+    section:last-child {
+      border-bottom: none;
+    }
+
+    h2 {
+      color: var(--accent-blue);
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+      padding-left: 12px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-family: 'IBM Plex Sans Thai', sans-serif;
+      /* ลบ border-left ออก */
+      border-left: none;
+    }
+
+    p, ul {
+      font-size: 1.1rem;
+      color: #2f4f8a;
+      font-family: 'IBM Plex Sans Thai', sans-serif;
+    }
+
+    ul {
+      padding-left: 20px;
+      list-style-type: disc;
+      margin-top: 8px;
+      font-family: 'IBM Plex Sans Thai', sans-serif;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+      font-family: 'IBM Plex Sans Thai', sans-serif;
+    }
+
+    .iv-program-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-top: 15px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+      font-family: 'IBM Plex Sans Thai', sans-serif;
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      justify-content: center;
+    }
+
+    .btn {
+      background-color: var(--accent-blue);
+      color: white;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 35px;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      box-shadow: 0 5px 15px rgba(58, 110, 216, 0.4);
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      min-width: 160px;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: #2a53b2;
+    }
+
+    footer {
+      background-color: #003366; 
+      padding: 15px 0;
+      text-align: center;
+      font-weight: bold;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+    footer p {
+      margin: 6px 0;
+      line-height: 1.4;
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 20px 10px;
+      }
+      header h1 {
+        font-size: 2.2rem;
+      }
+      main {
+        margin: 20px 12px 30px;
+      }
+      .btn-container {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .btn {
+        min-width: auto;
+        width: 100%;
+      }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      margin: 0;
+      padding: 40px;
+      text-align: center;
+    }
+    .booking-box {
+      border: 2px solid #4CAF50;
+      padding: 20px;
+      border-radius: 15px;
+      background-color: #e8f5e9;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: center;
+      max-width: 300px;
+      margin: auto;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .booking-box:hover {
+      background-color: #c8e6c9;
+      transform: scale(1.03);
+    }
+    .booking-box h3 {
+      margin: 0;
+      color: #2e7d32;
+    }
+    .booking-box p {
+      margin-top: 10px;
+      color: #555;
+    }
+
+</body>
+</html>
+
+  </style>
+
+  <div class="pattern"></div>
+
+  <header>
+    <h1>CEF Wellness</h1>
+    <p class="subtitle">Women Health Clinic &amp; Beauty</p>
+  </header>
+
+  <main>
+<section class="box-text">
+  <h2>เปิดให้บริการด้านสุขภาพ</h2>
+  <p>
+    คลินิก CEF Wellness ให้บริการดูแลสุขภาพและความงามสำหรับผู้หญิงโดยเฉพาะ ด้วยทีมแพทย์ผู้เชี่ยวชาญและโปรแกรมที่ตอบโจทย์ความต้องการด้านสุขภาพอย่างครบวงจร
+  </p>
+</section>
+
+    <section>
+      <h2>บริการ IV Drip Program</h2>
+      <p>โปรแกรม IV Drip ของเรามีดังนี้:</p>
+      <ul>
+        <li>Shinning Star program</li>
+        <p>สูตรนี้ช่วยส่งเสริมให้ร่างกายรู้สึกสดชื่น กระปรี้กระเปร่า และช่วยสนับสนุนระบบภูมิคุ้มกันให้ทำงานอย่างสมดุล</p>
+        <li>Immune Booster program</li>
+        <p>ช่วยสนับสนุนการดูแลและบำรุงระบบภูมิคุ้มกัน เพื่อให้ร่างกายสามารถตอบสนองต่อสภาพแวดล้อมได้ดีขึ้นในระดับปกติ</p>
+        <li>Brain & Energy Booster program</li>
+        <p>ช่วยส่งเสริมความสดชื่นของสมองและระดับพลังงาน เพื่อสนับสนุนการทำงานและสมาธิในกิจกรรมประจำวัน</p>
+        <li>Liver Detox program</li>
+        <p>ช่วยส่งเสริมกระบวนการทำงานของตับในระบบการขจัดของเสียตามธรรมชาติของร่างกาย เพื่อความสมดุลและสุขภาพโดยรวม</p>
+        <li>Metabolic Faster program</li>
+        <p>ช่วยสนับสนุนระบบการเผาผลาญตามธรรมชาติของร่างกาย เพื่อส่งเสริมการใช้พลังงานอย่างมีประสิทธิภาพ</p>
+        <li>Fertility Support program</li>
+        <p>ช่วยสนับสนุนสุขภาพโดยรวมที่เกี่ยวข้องกับระบบสืบพันธุ์ เพื่อการดูแลในภาพรวมของผู้ที่สนใจ</p>
+      </ul>
+
+      <img src="Blue Save the Date Wedding Instagram Story.png" alt="IV Drip Program Image" class="iv-program-image" />
+
+    </section>
+
+<section>
+  <div class="btn-container">
+    <a href="booking.html" class="btn">จองคิว</a>
+    <a href="consult.html" class="btn">เข้าระบบปรึกษาออนไลน์</a>
+
+  </div>
+</section>
+
+    <section style="max-width: 900px; margin: 40px auto; background: #ffffffdd; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); padding: 30px; display: flex; gap: 40px; flex-wrap: wrap;">
+      <!-- ฝั่งซ้าย: ติดต่อเรา -->
+      <div style="flex: 1 1 45%; min-width: 280px;">
+        <h2 style="color:#4979d6; padding-left: 12px; margin-bottom: 20px;">ติดต่อเรา</h2>
+        <p><strong>Mail:</strong> <a href="mailto:CEF.wellness.consult@gmail.com" style="color:#1a3c72; text-decoration: none;">CEF.wellness.consult@gmail.com</a></p>
+        <p><strong>Tel:</strong> <a href="tel:0808300113" style="color:#1a3c72; text-decoration: none;">080-830-0113</a></p>
+        <p><strong>ที่ตั้ง:</strong><br />
+          CRC Tower ชั้น 15 ออลซีซั่นเพลส<br />
+          ถนนวิทยุ แขวงลุมพินี เขตปทุมวัน กรุงเทพมหานคร 10330
+        </p>
+      </div>
+
+      <!-- ฝั่งขวา: QR Code -->
+      <div style="flex: 1 1 45%; min-width: 280px; text-align: center;">
+        <p style="margin-bottom: 15px; font-size: 16px; color: #000;">สแกน QR Code</p>
+        <img src="L_gainfriends_2dbarcodes_BW.png" alt="Line QR Code" style="max-width: 250px; width: 100%; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);" />
+      </div>
+    </section>
+
+    <section>
+      <h2>แผนที่ของเรา</h2>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.6599557414843!2d100.54543557544925!3d13.739025597588437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29fcb1afb7b59%3A0x3cd7d87dd00c5717!2sCEF%20Bangkok!5e0!3m2!1sen!2sth!4v1754912260813!5m2!1sen!2sth" 
+          width="100%" 
+          height="450" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        ></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CEF Wellness. สงวนลิขสิทธิ์.</p>
+  </footer>
+</body>
+</html>
