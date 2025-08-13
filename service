@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <title>บริการ</title>
+  <style>
+    body {
+      font-family: 'Kanit', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #003366;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .service-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      transition: transform 0.2s ease;
+    }
+    .service-card:hover {
+      transform: scale(1.02);
+    }
+    .service-card h2 {
+      margin-top: 0;
+      color: #4979d6;
+    }
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #4979d6;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .back-btn:hover {
+      background-color: #3458a4;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <h1><i class="fa-solid fa-calendar-check"></i> บริการของเรา</h1>
+
+  <div class="service-card">
+    <h2>ตรวจสุขภาพทั่วไป</h2>
+    <p>บริการตรวจร่างกายโดยแพทย์ผู้เชี่ยวชาญ</p>
+  </div>
+
+  <div class="service-card">
+    <h2>IV Drip Program</h2>
+    <p>บำรุงร่างกายและเสริมภูมิคุ้มกันด้วยสูตรเฉพาะ</p>
+  </div>
+
+  <div class="service-card">
+    <h2>ปรึกษาแพทย์ออนไลน์</h2>
+    <p>ปรึกษาผ่านวิดีโอคอล สะดวกทุกที่</p>
+  </div>
+
+ <a href="mywedtesting.html" class="back-btn">⬅ กลับหน้าหลัก</a>
+
+</body>
+</html>
